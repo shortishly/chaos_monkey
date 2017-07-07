@@ -199,7 +199,7 @@ do_almost_kill(AppFilter) ->
 do_find_orphans() ->
     Ps = [{P,
            application:get_application(P),
-           pman_process:is_system_process(P)}
+           erts_internal:is_system_process(P)}
           || P <- erlang:processes()],
     lists:zf(fun({P, undefined, false}) ->
                      case is_shell(P) of
