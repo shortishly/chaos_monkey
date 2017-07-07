@@ -548,7 +548,7 @@ is_killable(Pid, App, AppFilter, IsSupervisorKillable)
         andalso
         not(lists:member(App, [kernel, chaos_monkey]))
         andalso
-        not(pman_process:is_system_process(Pid))
+        not(erts_internal:is_system_process(Pid))
         andalso
         not(is_shell(Pid))
         andalso
